@@ -1,0 +1,96 @@
+<li
+  class='py-3 sm:py-4'
+  {{on 'mouseenter' this.displayIcons}}
+  {{on 'mouseleave' this.displayIcons}}
+>
+  {{#if this.isEditMode}}
+    <Timeslot::CardForm @timeslot={{@timeslot}} />
+  {{else}}
+    <div class='flex items-center space-x-4'>
+      <div class='flex-1 min-w-0'>
+        <p class='text-sm font-medium text-gray-900 truncate dark:text-white'>
+          {{@timeslot.activityName}}
+        </p>
+        <p class='text-sm text-gray-500 truncate dark:text-gray-400'>
+          {{format-date @timeslot.date}}
+        </p>
+        <p
+          class='text-sm text-gray-500 truncate dark:text-gray-400'
+        >{{@timeslot.startTime}}
+          -
+          {{@timeslot.endTime}}</p>
+      </div>
+      <div
+        class='inline-flex items-center text-base rounded-full bg-transparent border px-3 py-1 font-semibold text-gray-900 dark:text-white'
+      >
+        {{@timeslot.numMaxGuests}}
+      </div>
+    </div>
+    <div class='mt-2 flex flex-row space-x-2'>
+      {{#if this.shouldDisplayIcons}}
+        <button
+          class='bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-1 px-1 inline-flex items-center'
+          type='button'
+          disabled={{this.isCanceled}}
+          {{on 'click' (fn @cancelTimeslot @timeslot)}}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            viewBox='0 0 24 24'
+          >
+            <path
+              fill='currentcolor'
+              d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z'
+            ></path>
+          </svg>
+        </button>
+        <button
+          class='bg-white text-gray-800 font-bold rounded border-b-2 border-yellow-500 hover:border-yellow-600 hover:bg-yellow-500 hover:text-white shadow-md py-1 px-1 inline-flex items-center'
+          type='button'
+          {{on 'click' this.toggleEditMode}}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            class='bi bi-pencil'
+            viewBox='0 0 16 16'
+          >
+            <path
+              fill='currentColor'
+              d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'
+            ></path>
+          </svg>
+        </button>
+        <button
+          class='bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-1 px-1 inline-flex items-center'
+          type='button'
+          {{on 'click' (fn @deleteTimeslot @timeslot)}}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            class='bi bi-trash'
+            viewBox='0 0 16 16'
+          >
+            <path
+              d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'
+            ></path>
+            <path
+              fill-rule='evenodd'
+              d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'
+            ></path>
+          </svg>
+        </button>
+        {{#if this.isCanceled}}
+          <span>CPF CANCELADO</span>
+        {{/if}}
+
+      {{/if}}
+    </div>
+  {{/if}}
+</li>
