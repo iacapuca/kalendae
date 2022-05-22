@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^2.0.4",
     "@ember/test-helpers": "^2.6.0",
     "@faker-js/faker": "^6.3.1",
     "@glimmer/component": "^1.0.4",
@@ -72,5 +73,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "flowbite": "^1.4.7",
+    "flowbite-datepicker": "^1.2.1"
   }
 }
