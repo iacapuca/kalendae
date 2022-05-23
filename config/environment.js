@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'kalendae',
     environment,
     rootURL: '/',
-    host: '/',
+    host: '',
     locationType: 'history',
     EmberENV: {
       FEATURES: {

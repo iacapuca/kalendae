@@ -69,13 +69,10 @@
     "webpack": "^5.70.0"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "16.x"
   },
   "ember": {
     "edition": "octane"
   },
-  "dependencies": {
-    "flowbite": "^1.4.7",
-    "flowbite-datepicker": "^1.2.1"
-  }
+  "dependencies": {}
 }

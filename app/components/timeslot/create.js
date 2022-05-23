@@ -9,26 +9,12 @@ export default class TimeslotCreateComponent extends Component {
   @service router;
   @service notify;
 
-  @tracked date;
-
-  @action
-  createDatepicker(el) {
-    new Datepicker(el, {
-      autohide: true,
-    });
-  }
-
-  @action
-  pickDate(e) {
-    console.log(e.target.value);
-  }
-
   @action
   onSubmit(e) {
     e.preventDefault();
     let newTimeslot = this.store.createRecord('timeslot', {
       activityName: this.activityName,
-      date: new Date('2022-08-08'),
+      date: new Date(`${this.date} 00:00`),
       startTime: this.startTime,
       endTime: this.endTime,
       numMaxGuests: this.numMaxGuests,
