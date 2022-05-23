@@ -7,19 +7,23 @@ export default class TimeslotCreateComponent extends Component {
   @service router;
   @service notify;
 
+  timeslot = this.store.createRecord('timeslot');
+
   @action
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
-    let newTimeslot = this.store.createRecord('timeslot', {
-      activityName: this.activityName,
-      date: new Date(`${this.date} 00:00`),
-      startTime: this.startTime,
-      endTime: this.endTime,
-      numMaxGuests: this.numMaxGuests,
-    });
-    newTimeslot.save().then((t) => {
-      this.notify.success(`${t.activityName} created with success`);
-      this.router.transitionTo('index');
-    });
+
+    this.timeslot.activityName = this.activityName;
+    this.timeslot.date = new Date(`${this.date} 00:00`);
+    this.timeslot.startTime = this.startTime;
+    this.timeslot.endTime = this.endTime;
+    this.timeslot.numMaxGuests = this.numMaxGuests;
+
+    if (await this.timeslot.validations.validate()) {
+      this.timeslot.save().then((t) => {
+        this.notify.success(`${t.activityName} created with success`);
+        this.router.transitionTo('index');
+      });
+    }
   }
 }

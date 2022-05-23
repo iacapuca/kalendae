@@ -10,6 +10,10 @@
     placeholder='Give the activity a name'
     class='border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 focus-visible:outline-none focus-visible:ring-blue-500 focus-visible:border-blue-500 block w-fit p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
   />
+  <ErrorMessage
+    data-test-timeslot-activity-name-error
+    @messages={{this.timeslot.validations.fieldErrors.activityName}}
+  />
 
   <label
     class='text-sm font-medium text-gray-900 truncate dark:text-white'
@@ -30,9 +34,13 @@
     class='border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 focus-visible:outline-none focus-visible:ring-blue-500 focus-visible:border-blue-500 block w-fit p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
     @type='time'
     min='00:00'
-    max='24:00'
+    max='23:59'
     @value={{this.startTime}}
     required
+  />
+  <ErrorMessage
+    data-test-timeslot-start-time-error
+    @messages={{this.timeslot.validations.fieldErrors.startTime}}
   />
   <label
     class='text-sm font-medium text-gray-900 truncate dark:text-white'
@@ -43,7 +51,7 @@
     class='border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 focus-visible:outline-none focus-visible:ring-blue-500 focus-visible:border-blue-500 block w-fit p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
     @type='time'
     min='00:00'
-    max='24:00'
+    max='23:59'
     @value={{this.endTime}}
     required
   />

@@ -66,7 +66,8 @@
     "qunit": "^2.18.0",
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^3.0.24",
-    "webpack": "^5.70.0"
+    "webpack": "^5.70.0",
+    "yup": "^0.32.11"
   },
   "engines": {
     "node": "16.x"
