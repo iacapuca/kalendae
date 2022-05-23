@@ -15,7 +15,7 @@ export default class IndexController extends Controller {
       .then((timeslot) => {
         this.notify.success(`${timeslot.activityName} canceled with success`);
       })
-      .catch((e) => {
+      .catch(() => {
         timeslot.rollbackAttributes();
         this.notify.error('Error: Unable to cancel timeslot');
       });
@@ -30,7 +30,7 @@ export default class IndexController extends Controller {
       .then((timeslot) => {
         this.notify.success(`${timeslot.activityName} deleted with success`);
       })
-      .catch((e) => {
+      .catch(() => {
         timeslot.rollbackAttributes();
         this.notify.error('Error: Unable to delete timeslot');
       });

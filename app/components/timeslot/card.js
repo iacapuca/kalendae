@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 
 export default class CardComponent extends Component {
   @tracked isEditMode = false;
   @tracked isDisplayingIcons = false;
 
   @action
-  toggleEditMode(e) {
+  toggleEditMode() {
     this.isEditMode = !this.isEditMode;
   }
 
