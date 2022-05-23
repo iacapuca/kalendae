@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action, computed } from '@ember/object';
-import Datepicker from 'flowbite-datepicker/Datepicker';
 import { service } from '@ember/service';
 
 export default class TimeslotCreateComponent extends Component {
