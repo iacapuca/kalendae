@@ -5,6 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'kalendae',
     environment,
     rootURL: '/',
+    host: '/',
     locationType: 'history',
     EmberENV: {
       FEATURES: {
@@ -21,6 +22,9 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+  };
+  ENV['ember-cli-mirage'] = {
+    enabled: true,
   };
 
   if (environment === 'development') {
@@ -44,7 +48,8 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV['ember-cli-mirage'].enabled = false;
+    ENV.host = 'https://kalendae-api.herokuapp.com';
   }
 
   return ENV;
