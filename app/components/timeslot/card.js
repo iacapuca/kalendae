@@ -8,7 +8,7 @@ export default class CardComponent extends Component {
 
   @action
   toggleEditMode(e) {
-    this.isEditMode = true;
+    this.isEditMode = !this.isEditMode;
   }
 
   @action

@@ -4,7 +4,10 @@
   {{on 'mouseleave' this.displayIcons}}
 >
   {{#if this.isEditMode}}
-    <Timeslot::CardForm @timeslot={{@timeslot}} />
+    <Timeslot::CardForm
+      @timeslot={{@timeslot}}
+      @toggleEditMode={{this.toggleEditMode}}
+    />
   {{else}}
     <div class='flex items-center space-x-4'>
       <div class='flex-1 min-w-0'>
