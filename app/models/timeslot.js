@@ -1,11 +1,11 @@
 import Model, { attr } from '@ember-data/model';
 import YupValidations from 'kalendae/validations/yup';
-import { string, date } from 'yup';
+import { string } from 'yup';
 
 export default class TimeslotModel extends Model {
   validations = new YupValidations(this, {
     activityName: string().required(),
-    startTime: string()
+    /*     startTime: string()
       .required()
       .test(
         'start_time_test',
@@ -25,7 +25,7 @@ export default class TimeslotModel extends Model {
         'date_test',
         'Date cant be in the past',
         (v) => v.getTime() >= new Date().getTime()
-      ),
+      ), */
   });
   @attr activityName;
   @attr date;
