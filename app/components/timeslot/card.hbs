@@ -11,19 +11,27 @@
   {{else}}
     <div class='flex items-center space-x-4'>
       <div class='flex-1 min-w-0'>
-        <p class='text-sm font-medium text-gray-900 truncate dark:text-white'>
+        <p
+          data-test-activityName
+          class='text-sm font-medium text-gray-900 truncate dark:text-white'
+        >
           {{@timeslot.activityName}}
         </p>
-        <p class='text-sm text-gray-500 truncate dark:text-gray-400'>
+        <p
+          data-test-activityDate
+          class='text-sm text-gray-500 truncate dark:text-gray-400'
+        >
           {{format-date @timeslot.date}}
         </p>
         <p
+          data-test-time
           class='text-sm text-gray-500 truncate dark:text-gray-400'
         >{{@timeslot.startTime}}
           -
           {{@timeslot.endTime}}</p>
       </div>
       <div
+        data-test-numMaxGuests
         class='inline-flex items-center text-base rounded-full bg-transparent border px-3 py-1 font-semibold text-gray-900 dark:text-white'
       >
         {{@timeslot.numMaxGuests}}
@@ -93,6 +101,7 @@
         </div>
         {{#if this.isCanceled}}
           <div
+            data-test-canceledBadge
             class='bg-red-600 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 text-white rounded-full'
           >
             CANCELED

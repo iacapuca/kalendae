@@ -8,10 +8,17 @@ module('Integration | Helper | format-date', function (hooks) {
 
   // TODO: Replace this with your real tests.
   test('it renders', async function (assert) {
-    this.set('inputValue', '1234');
+    this.set('inputValue', '2022-08-08');
 
     await render(hbs`{{format-date this.inputValue}}`);
 
-    assert.dom(this.element).hasText('1234');
+    assert.dom(this.element).hasText(
+      new Date('2022-08-08').toLocaleString(navigator.language, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    );
   });
 });
